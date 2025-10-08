@@ -1,0 +1,20 @@
+{
+  "routerMap": [
+    {
+      "name": "Index",
+      "pageSourceFile": "src/main/ets/pages/Index.ets",
+      "buildFunction": "IndexBuilder",
+      "data": {
+        "description": "this is MainScreen"
+      }
+    },
+    {
+      "name": "Vibrate",
+      "pageSourceFile": "src/main/ets/pages/Vibrate.ets",
+      "buildFunction": "VibrateBuilder",
+      "data": {
+        "description": "this is MainScreen"
+      }
+    }
+  ]
+}
