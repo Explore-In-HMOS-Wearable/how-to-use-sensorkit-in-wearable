@@ -22,6 +22,8 @@ struct Index {
   @State gravity: string = '';
   @State heartData: number = 0;
   @State pedometer: number = 0;
+  private uiContext = this.getUIContext();
+  private realContext = this.uiContext.getHostContext()
 
   aboutToAppear(): void {
     const INTERVAL = 200000000;
@@ -29,7 +31,7 @@ struct Index {
       'ohos.permission.ACCELEROMETER',
       'ohos.permission.ACTIVITY_MOTION',
       'ohos.permission.GYROSCOPE',
-      'ohos.permission.READ_HEALTH_DATA'])
+      'ohos.permission.READ_HEALTH_DATA'], this.realContext!)
     sensor.getSensorList((error: BusinessError, data: Array<sensor.Sensor>) => {
       if (error) {
         console.error('getSensorList failed');
@@ -51,7 +53,7 @@ struct Index {
 
     try {
         sensor.on(sensor.SensorId.PEDOMETER, (data: sensor.PedometerResponse) => {
-          console.info('Succeeded in invoking on. Step count: ' + data.steps);
+          console.info(`Succeeded in invoking on. Step count: ${data.steps}`);
           this.pedometer = data.steps
         }, { interval: INTERVAL });
     } catch (error) {
@@ -70,9 +72,9 @@ struct Index {
     try {
       sensor.on(sensor.SensorId.GRAVITY, (data: sensor.GravityResponse) => {
         this.gravity = `x:${data.x.toFixed(2)}, y:${data.y.toFixed(2)}, z:${data.z.toFixed(2)}`;
-        console.info('Succeeded in invoking on. X-coordinate component: ' + data.x);
-        console.info('Succeeded in invoking on. Y-coordinate component: ' + data.y);
-        console.info('Succeeded in invoking on. Z-coordinate component: ' + data.z);
+        console.info(`Succeeded in invoking on. X-coordinate component:: ${data.x}`);
+        console.info(`Succeeded in invoking on. Y-coordinate component:: ${data.y}`);
+        console.info(`Succeeded in invoking on. Z-coordinate component:: ${data.z}`);
       }, { interval: INTERVAL });
       setTimeout(() => {
         sensor.off(sensor.SensorId.GRAVITY);
