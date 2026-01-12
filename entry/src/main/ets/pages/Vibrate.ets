@@ -53,7 +53,7 @@ struct Vibrate {
             vibrator.startVibration({
               type: 'preset',
               effectId: 'haptic.notice.success',
-              count: 1,
+              count: 1
             }, {
               usage: 'notification' // The switch control is subject to the selected type.
             }, (error: BusinessError) => {
@@ -80,7 +80,7 @@ struct Vibrate {
     // Obtain the file descriptor of the vibration configuration file.
     let rawFd: resourceManager.RawFileDescriptor | undefined =
       this.uiContext.getHostContext()?.resourceManager.getRawFdSync(fileName);
-    if (rawFd != undefined) {
+    if (rawFd !== undefined) {
       // Start vibration.
       try {
         vibrator.startVibration({
@@ -109,7 +109,7 @@ struct Vibrate {
     // Obtain the file descriptor of the vibration configuration file.
     let rawFd: resourceManager.RawFileDescriptor | undefined =
       this.uiContext.getHostContext()?.resourceManager.getRawFdSync(fileNameStomp);
-    if (rawFd != undefined) {
+    if (rawFd !== undefined) {
       // Start vibration.
       try {
         vibrator.startVibration({

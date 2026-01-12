@@ -156,16 +156,16 @@ struct Index {
       Scroll() {
         Column({ space: 15 }) {
           Text('Sensor Dashboard').fontSize(24).fontWeight(FontWeight.Bold)
-          Text('accelerometer' + this.accelerometer)
-          Text('gyroscope' + this.gyroscope)
-          Text('light' + this.light)
-          Text('pressure' + this.pressure)
-          Text('humidity' + this.humidity)
-          Text('temperature' + this.temperature)
-          Text('orientation' + this.orientation)
-          Text('gravity' + this.gravity)
-          Text('heartData' + this.heartData)
-          Text('pedometer' + this.pedometer)
+          Text(`accelerometer ${this.accelerometer}`)
+          Text(`gyroscope ${this.gyroscope}`)
+          Text(`light ${this.light}`)
+          Text(`pressure ${this.pressure}`)
+          Text(`humidity ${this.humidity}`)
+          Text(`temperature ${this.temperature}`)
+          Text(`orientation ${this.orientation}`)
+          Text(`gravity ${this.gravity}`)
+          Text(`heartData ${this.heartData}`)
+          Text(`pedometer ${this.pedometer}`)
           Blank().height('5%')
           Button('Vibration Page').onClick(()=>{
             this.pageInfos.pushPathByName('Vibrate', '');
